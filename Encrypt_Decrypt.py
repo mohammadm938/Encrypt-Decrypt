@@ -34,11 +34,11 @@ def crackPassList(fileName):
         cracked = []
         file = open(fileName, 'r')
         data = file.readlines()
-        for item in data:
-            item = item.split("\n")
+        for item in data: # items are like => 123545/n
+            item = item.split("\n") # here delete /n on 123545/n
             allLines.append(item[0])
         for item in allLines:
-            cracked.append(decrypt(item))
+            cracked.append(decrypt(item)) # for decrypt and add to list 
         for item in cracked:
             saveInFile([item, ''], "cracked.txt")
 
@@ -67,7 +67,7 @@ def wellcome():
 
 def saveInFile(arrayData, name):
     try:
-        file = open(name, 'a+')
+        file = open(name, 'a+') # if file exists append if not exists create it
         file.write(f"{arrayData[0]} : {arrayData[1]}\n")
     except:
         print(colors.error+"file Dosent saved"+colors.starter)
