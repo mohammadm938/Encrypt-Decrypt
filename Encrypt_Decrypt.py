@@ -49,10 +49,12 @@ def crackPassList(fileName):
 
 
 def wellcome():
-    print(colors.starter+"[1] encrypt text")
-    print(colors.starter+"[2] decrypt text")
-    print(colors.starter+"[3] crack text file")
-
+    string = """
+    [1] encrypt text
+    [2] decrypt text
+    [3] crack text file
+    """
+    print(colors.starter+string)
     result = int(input("select your method : "))
     if result == 1:
         text = str(input("Enter your text : "))
