@@ -13,7 +13,7 @@ def encrypt(string):
     for char in string:
         nums.append(str(ord(char)*1024+12))
     secure_text = ','.join(nums)
-    saveInFile([string, secure_text], "secure.txt")
+    save_in_file([string, secure_text], "secure.txt")
     print(colors.success+f"Your secure text : {secure_text}")
     print(colors.information +
           "The Information saved on (secure.txt) its behind this python file")
@@ -28,7 +28,7 @@ def decrypt(secure_text):
     return decrypt_text
 
 
-def crackPassList(fileName):
+def crack_pass_list(fileName):
     try:
         allLines = []
         cracked = []
@@ -40,7 +40,7 @@ def crackPassList(fileName):
         for item in allLines:
             cracked.append(decrypt(item)) # for decrypt and add to list 
         for item in cracked:
-            saveInFile([item, ''], "cracked.txt")
+            save_in_file([item, ''], "cracked.txt")
 
     except:
         print(colors.error+"we have some error cheack the path of file ")
@@ -64,10 +64,10 @@ def wellcome():
         decrypt(text)
     elif result == 3:
         text = str(input("Enter file path : "))
-        crackPassList(text)
+        crack_pass_list(text)
 
 
-def saveInFile(arrayData, name):
+def save_in_file(arrayData, name):
     try:
         file = open(name, 'a+') # if file exists append if not exists create it
         file.write(f"{arrayData[0]} : {arrayData[1]}\n")
